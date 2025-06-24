@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
@@ -14,7 +13,6 @@ export default function Init() {
 √   App Router?  ...  No / \`Yes\` 
 √      Turbopack?...  No / \`Yes\`
 √ import alias'? ... \`No\` / Yes  `;
-
 
   return (
     <div className="init">

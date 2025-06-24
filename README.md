@@ -21,6 +21,7 @@ next-app/     		# http://localhost:3000
 │   ├── about/ 		# '/about
 ```
 Navigate to them with 
+
 ```TS
 import Link from "next/link";
 ----------------------------------------
