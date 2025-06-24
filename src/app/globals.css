@@ -12,6 +12,9 @@ h1 {
   font-size: 2rem;
   color: #2c3e50;
 }
+p {
+	text-align: center;
+}
 
 ul {
   list-style: none;
