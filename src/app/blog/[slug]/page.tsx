@@ -32,13 +32,20 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       date: "2024-01-15",
     },
   };
+  // console.log("Parm:", params.slug)
 
   // Get the specific post data using the slug from the URL
   const post = postData[params.slug as keyof typeof postData];
 
   // Handle case where slug doesn't exist
   if (!post) {
-    return <div>Post not found!</div>;
+    return (
+      <div>
+        <h2>Post not found!</h2>
+				<p>the slug comes through the</p>
+			</div>
+
+    );
   }
 
   return (

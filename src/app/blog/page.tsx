@@ -24,7 +24,7 @@ export default async function BlogPage() {
 
   return (
     <>
-			<h1> This is the Blog Page </h1>
+      <h1> This is the Blog Page </h1>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
@@ -36,6 +36,12 @@ export default async function BlogPage() {
           </li>
           // <Post key={post.id} post={post} />
         ))}
+        <li>
+          <Link href={`/blog/manual-slug`}>
+            <h3>My Manual Slug Post</h3>
+          </Link>
+          <p> description....</p>
+        </li>
       </ul>
       <nav>
         <Link href="/about">Go to About Page</Link> |{" "}
