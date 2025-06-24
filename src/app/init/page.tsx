@@ -31,9 +31,6 @@ export default function Init() {
       <SyntaxHighlighter language="javascript" style={dracula}>
         {code2}
       </SyntaxHighlighter>
-      <nav>
-        <Link href="/">Go to Home Page</Link>
-      </nav>
     </div>
   );
 }
