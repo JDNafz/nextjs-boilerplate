@@ -6,7 +6,7 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
       {/* Header that appears on all blog pages */}
       <header>
         {/* ----- BlogLayout -------- */}
-        <h1>My Blog </h1>
+        <h1>My Blog `Layout`</h1>
         <Link href="/blog">← Back to All Posts</Link>
       </header>
 
