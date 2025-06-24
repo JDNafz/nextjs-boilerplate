@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 body {
   font-family: sans-serif;
   background-color: #f4f4f4;
@@ -5,17 +9,32 @@ body {
   margin: 0;
   padding: 0;
 }
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
 
 h1 {
-  text-align: center;
   margin-top: 40px;
   font-size: 2rem;
   color: #2c3e50;
 }
-p {
-	text-align: center;
-}
 
+.small-text {
+  font-size: 0.7rem;
+}
+.init > p {
+  text-align: start;
+}
+.highlight {
+	color: #ecebeb;
+	background-color: #3c3c3c;
+	padding: 1px 3px;
+	border-radius: 3px;
+}
 ul {
   list-style: none;
   padding: 0;

@@ -1,12 +1,20 @@
 # Next JS Exploration
 
-These are some major tips/takeaways from going through Next JS documentation. The assumption is you're familiar with React already, my experience is in Create-React-App and 
+The content of the app is designed to be a NextJS tutorial or tips website. 
+
+## Spin up my Code!
+
+`git clone git@github.com:york-june-ets/jnafziger-nextjs-exploration.git`
+
+`npm run dev` *set to run on 3001 so YOU can run your own new/current project on 3000
+
+
 ## Takeaways
 
-- ### App Router makes life easy
-	TLDR: Folders create urls automatically 
+- ### ~App Router~ Generates URLs Automatically 
 
 ```
+Project Structure
 next-app/     		# http://localhost:3000
 ├── app/			# '/'
 │   ├── blog/		# '/blog
