@@ -46,7 +46,7 @@ export async function GET() {
         {code3}
       </SyntaxHighlighter>
       <p className="small-text">
-        If you don't create a function for an HTTP method NextJS automatically sends '405 (Method Not Allowed)'
+        If you don&apos;t create a function for an HTTP method NextJS automatically sends '405 (Method Not Allowed)'
       </p>
     </main>
   );

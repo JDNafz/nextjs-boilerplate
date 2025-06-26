@@ -27,7 +27,7 @@ export default function HomePage() {
           </Link>
         </li>
         <li>
-          <Link className="link" href="/client-fetch">
+          <Link className="link" href="/fetching">
             Fetch From API
           </Link>
         </li>

@@ -3,9 +3,8 @@
 }
 
 .text-left {
-	text-align: left;
+  text-align: left;
 }
-
 
 body {
   font-family: sans-serif;
@@ -56,9 +55,9 @@ ul {
 
 li {
   background: #fff;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 8px;
+  margin: 5px 0;
+  padding: 0 20px;
+  border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -88,7 +87,24 @@ a {
   text-decoration: none;
 }
 
-
 .blue {
-	color: blue;
+  color: blue;
+}
+
+.btn {
+  all: unset;
+  border-radius: 5px;
+  border: 1px solid rgb(114, 143, 105);
+  padding: 1% 2%;
+  margin: 1% 2%;
+}
+.btn:hover {
+  text-decoration: underline;
+  color: #0070f3;
+  border: 1px solid #0070f3;
+}
+
+.large-btn {
+  padding: 2% 10%;
+  font-size: 2rem;
 }

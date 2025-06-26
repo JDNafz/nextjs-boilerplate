@@ -51,23 +51,27 @@ if (res.success) {
     <div>
       <h3>Fetching</h3>
 
-      <button onClick={fetchUsers}> {`<button onClick={fetchUsers}>This Btn</button>`}</button>
-
       <SyntaxHighlighter language="javascript" style={dracula}>
         {code1}
       </SyntaxHighlighter>
 
+      <button className="btn large-btn" onClick={fetchUsers}>
+        Try it!
+      </button>
+      <button className="btn" onClick={() => setUsers([])}>
+        Clear List
+      </button>
       <p className="small-text"> Normally would use a useEffect to fetch*</p>
-			<h3> List of Users </h3>
-      {users?.map((user) => (
-        <div key={user.id}>
-          {user.name}
-          <button onClick={() => handleDuplicate(user)} type="button">
-            {" "}
-            Duplicate User
-          </button>
-        </div>
-      ))}
+      <ul>
+        {users?.map((user) => (
+          <li key={user.id}>
+            {user.name}
+            <button className="btn" onClick={() => handleDuplicate(user)} type="button">
+              Duplicate User
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
