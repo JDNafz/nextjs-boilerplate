@@ -21,9 +21,16 @@ export default function HomePage() {
             Navigation with {`<Link>`}
           </Link>
         </li>
-        {/* <li>
-          <Link className="link" href="/"></Link>
-					</li> */}
+        <li>
+          <Link className="link" href="/api">
+            Create API
+          </Link>
+        </li>
+        <li>
+          <Link className="link" href="/client-fetch">
+            Fetch From API
+          </Link>
+        </li>
         <li>
           <h3>External Links</h3>
           <Link className="link" target="_blank" href="https://nextjs.org/docs">
