@@ -20,7 +20,7 @@ const UserSettings: React.FC = () => {
   };
 
   //POST (a copy of the previous users)
-  const handleDuplicate = async (user: User) => {
+  const handlePost = async (user: User) => {
     //  const createUser = async (e: React.FormEvent) => {
     //   e.preventDefault();
 
@@ -55,7 +55,7 @@ if (res.success) {
         {code1}
       </SyntaxHighlighter>
 
-      <button className="btn large-btn" onClick={fetchUsers}>
+      <button className="btn btn-large" onClick={fetchUsers}>
         Try it!
       </button>
       <button className="btn" onClick={() => setUsers([])}>
@@ -66,8 +66,8 @@ if (res.success) {
         {users?.map((user) => (
           <li key={user.id}>
             {user.name}
-            <button className="btn" onClick={() => handleDuplicate(user)} type="button">
-              Duplicate User
+            <button className="btn btn-small" onClick={() => handlePost(user)} type="button">
+              POST Call (this user)
             </button>
           </li>
         ))}

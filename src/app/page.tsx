@@ -3,52 +3,56 @@
 import Link from "next/link";
 
 export default function HomePage() {
+  const linkList = [
+    {
+      url: "/init",
+      name: "npx create-next-app@latest",
+    },
+    {
+      url: "/app-router",
+      name: "Navigation with <Link>",
+    },
+    {
+      url: "/api",
+      name: "Create API",
+    },
+    {
+      url: "/fetching",
+      name: "Fetch From API",
+    },
+  ];
+
   return (
-    <div className="home-page">
-      <h1>NextJS Cheat Sheet </h1>
-      <p>Building your own version will help build your confidence with these topics!</p>
-      <ul className="topics-list">
-        <li>
-          <Link className="link" href="/init">
-            npx create-next-app@latest
-          </Link>
-        </li>
-        {/* <li>
-          <Link className="link" href="/file-structure">File Structure</Link>
-					</li> */}
-        <li>
-          <Link className="link" href="/app-router">
-            Navigation with {`<Link>`}
-          </Link>
-        </li>
-        <li>
-          <Link className="link" href="/api">
-            Create API
-          </Link>
-        </li>
-        <li>
-          <Link className="link" href="/fetching">
-            Fetch From API
-          </Link>
-        </li>
-        <li>
+    <>
+      <div className="home-page">
+        <h1>NextJS Cheat Sheet </h1>
+        <p className="site-description">
+          Building your own version will help build your confidence with these topics!
+        </p>
+        <ul className="topics-list">
+          {linkList.map((link, idx) => {
+            return (
+              <li className="li-link" key={idx}>
+                <Link href={link.url}>{link.name}</Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div>
           <h3>External Links</h3>
-          <Link className="link" target="_blank" href="https://nextjs.org/docs">
+          <Link target="_blank" href="https://nextjs.org/docs">
             NextJS.org/Docs
           </Link>
-          <Link className="link" target="_blank" href="https://vercel.com/new/templates">
+          <Link target="_blank" href="https://vercel.com/new/templates">
             Templates
           </Link>
-          <Link
-            className="link"
-            target="_blank"
-            href="https://github.com/emanuelefavero/next-js?tab=readme-ov-file"
-          >
+          <Link target="_blank" href="https://github.com/emanuelefavero/next-js?tab=readme-ov-file">
             Cheat sheet Repo
           </Link>
-        </li>
-      </ul>
-      <p className="small-text">NextJS v15.3.4</p>
-    </div>
+        </div>
+      </div>
+      <p className="small-text footer">NextJS v15.3.4</p>
+    </>
   );
 }

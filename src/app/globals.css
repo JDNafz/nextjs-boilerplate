@@ -55,14 +55,18 @@ ul {
 
 li {
   background: #fff;
-  margin: 5px 0;
-  padding: 0 20px;
+  width: 50%;
+  margin: 5px auto;
   border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.li-link {
+  padding: 1% 2%;
+  align-items: center;
+}
+
 .home-page > p {
-  width: 80%;
   margin: 0 auto;
 }
 p {
@@ -104,7 +108,24 @@ a {
   border: 1px solid #0070f3;
 }
 
-.large-btn {
+.btn-large {
   padding: 2% 10%;
   font-size: 2rem;
+}
+
+.btn-small {
+  font-size: 0.5rem;
+}
+
+.footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background-color: #ff2323;
+  padding: 1%;
+	background-color: #ecebeb;
+}
+
+.site-description {
+  width: 80%;
 }
