@@ -23,7 +23,8 @@ const UserSettings: React.FC = () => {
   };
 
   //POST (a copy of the previous users)
-  const handlePost = async (user: User) => {
+  // const handlePost = async (user: User) => {
+  const handlePost = async () => {
     try {
       const res = await fetch("/api/users", {
         method: "POST",
@@ -35,14 +36,14 @@ const UserSettings: React.FC = () => {
         }),
       });
       const result = await res.json();
-			const createdUser = result.data;
+      const createdUser = result.data;
 
       //this checks http response errors
       if (!res.ok) {
         console.error(result.error);
-				return;
+        return;
       }
-			setUsers(prev => [...prev, createdUser])
+      setUsers((prev) => [...prev, createdUser]);
     } catch (err) {
       //catch fails for network, json, CORS, etc.
       const errorMessage = err instanceof Error ? err.message : "Unknown Error handlePOST";
@@ -77,7 +78,8 @@ if (res.success) {
         {users.map((user) => (
           <li key={user.id}>
             {user.name}
-            <button className="btn btn-small" onClick={() => handlePost(user)} type="button">
+            {/* <button className="btn btn-small" onClick={() => handlePost(user)} type="button"> TODO: Take input*/}
+            <button className="btn btn-small" onClick={() => handlePost()} type="button">
               POST Call (this user)
             </button>
           </li>
