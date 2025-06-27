@@ -3,10 +3,10 @@ import { userRepository } from "@/app/lib/container";
 // GET /api/users - Get all users
 export async function GET(): Promise<Response> {
 	try {
-		// In real app: const users = await db.users.findMany()
+		const users = await userRepository.getUsers()
 		return Response.json({
 			success: true,
-			data: userRepository.getUsers() //make use of Dependancy Injection
+			data: users //make use of Dependancy Injection
 			// data: localUsersArray // Local Data line 48
 		});
 	} catch {
@@ -25,39 +25,26 @@ export async function POST(request: Request): Promise<Response> {
 		const body = await request.json();
 		const newUser = body;
 
+		const createdUser = await userRepository.createUser(newUser)
+
 		return Response.json(
-			{ success: true, data: userRepository.createUser(newUser) }, 	// Dependency Injection
-			// { success: true, data: createLocalUser(newUser) }, 				// Local data
-			{ status: 201 } // 201 = Created
+			{ success: true, data: createdUser },
+			{ status: 201 }
 		);
-	} catch {
+	} catch (err) {
+		if (err instanceof Error && err.message.includes("duplicate key")) {
+			console.log(err.message);
+			return Response.json(
+				{ success: false, error: "Email already in use." },
+				{ status: 409 }
+			);
+		}
+		const errorMessage = err instanceof Error ? err.message : "Unknown Error API POST"
+
 		return Response.json(
-			{ success: false, error: "Failed to create user" },
+			{ success: false, error: "Server error: " + errorMessage },
 			{ status: 500 }
 		);
 	}
 }
 
-
-
-/* // For use of local Data:
-
-interface LocalUser {
-	id: number,
-	name: string
-}
-const localUsersArray = [
-	{ id: 1, name: "John Doe"},
-	{ id: 2, name: "Jane Smith" },
-];
-
-	const createLocalUser = (newUser: Omit<LocalUser, "id">):LocalUser => {
-		const createdUser = {
-			id: localUsersArray.length + 1, // Simple ID generation
-			name: newUser.name
-		};
-		localUsersArray.push(createdUser);
-		return createdUser
-	}
-
-	*/

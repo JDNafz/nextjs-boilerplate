@@ -8,34 +8,45 @@ interface User {
   name: string;
 }
 const UserSettings: React.FC = () => {
-  const [users, setUsers] = useState<User[] | null>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
+  // no need for useEffect, making the call on a button press.
   const fetchUsers = async () => {
-    const response = await fetch("/api/users");
-    const res = await response.json();
-    if (res.success) {
+    try {
+      const response = await fetch("/api/users");
+      const res = await response.json();
       console.log("res:", res.data);
       setUsers(res.data);
+    } catch (err) {
+      throw new Error(`Error fetching Users: ${err}`);
     }
   };
 
   //POST (a copy of the previous users)
   const handlePost = async (user: User) => {
-    //  const createUser = async (e: React.FormEvent) => {
-    //   e.preventDefault();
+    try {
+      const res = await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "JD",
+          email: "test@email.com1234567",
+          password: "test1",
+        }),
+      });
+      const result = await res.json();
+			const createdUser = result.data;
 
-    const res = await fetch("/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(
-        // normally build object here from useState
-        {
-          name: user.name,
-        }
-      ),
-    });
-    if (res.ok) {
-      fetchUsers();
+      //this checks http response errors
+      if (!res.ok) {
+        console.error(result.error);
+				return;
+      }
+			setUsers(prev => [...prev, createdUser])
+    } catch (err) {
+      //catch fails for network, json, CORS, etc.
+      const errorMessage = err instanceof Error ? err.message : "Unknown Error handlePOST";
+      return Response.json({ success: false, error: errorMessage }, { status: 500 });
     }
   };
 
@@ -63,7 +74,7 @@ if (res.success) {
       </button>
       <p className="small-text"> Normally would use a useEffect to fetch*</p>
       <ul>
-        {users?.map((user) => (
+        {users.map((user) => (
           <li key={user.id}>
             {user.name}
             <button className="btn btn-small" onClick={() => handlePost(user)} type="button">

@@ -1,13 +1,15 @@
 import { UserRepository } from './interfaces/UserRepository';
-import MockUserRepository from './repositories/MockUserRepository';
+// import MockUserRepository from './repositories/MockUserRepository';
+import NeonUserRepository from './repositories/NeonUserRepository';
 
 // 	Change 
 // 				new MockUserRepository() 
 // 		to 
 // 				new JsonServerUserRepository()
 // for easy switching
-export const userRepository: UserRepository = new MockUserRepository();
 
+// export const userRepository: UserRepository = new MockUserRepository();
+export const userRepository: UserRepository = new NeonUserRepository();
 
 
 // My notes: 
